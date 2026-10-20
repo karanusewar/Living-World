@@ -49,17 +49,17 @@ export default function App() {
         <footer
           className="fixed bottom-0 left-0 z-30 pointer-events-none select-none transition-all duration-300 max-w-[92vw] sm:max-w-xl md:max-w-2xl"
           style={{
-            paddingBottom: 'max(env(safe-area-inset-bottom, 0px) + 1.5rem, 1.5rem)',
-            paddingLeft: 'max(env(safe-area-inset-left, 0px) + 1.25rem, 1.25rem)',
-            paddingRight: 'max(env(safe-area-inset-right, 0px) + 1.25rem, 1.25rem)',
+            paddingBottom: 'max(env(safe-area-inset-bottom, 0px) + 0.75rem, 0.75rem)',
+            paddingLeft: 'max(env(safe-area-inset-left, 0px) + 1rem, 1rem)',
+            paddingRight: 'max(env(safe-area-inset-right, 0px) + 1rem, 1rem)',
           }}
         >
           <div className="flex flex-col items-start">
-            <h1 className="font-serif-display text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold tracking-tight text-white leading-[0.98] drop-shadow-[0_2px_14px_rgba(0,0,0,0.6)]">
+            <h1 className="hero-title font-serif-display text-2xl sm:text-4xl md:text-5xl lg:text-[4.2rem] font-bold tracking-tight text-white leading-[0.98] drop-shadow-[0_2px_14px_rgba(0,0,0,0.6)]">
               A DAY IN<br />
               OUR WORLD
             </h1>
-            <p className="text-white/95 text-xs sm:text-sm md:text-[15px] font-normal tracking-wide mt-2 sm:mt-3 drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)] leading-relaxed">
+            <p className="hero-subtitle text-white/90 text-xs sm:text-sm md:text-[15px] font-normal tracking-wide mt-1.5 sm:mt-2.5 drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)] leading-relaxed">
               Every street has a story. Every life is connected.
             </p>
           </div>
