@@ -109,7 +109,12 @@ export const UserProfileMenu: React.FC = () => {
   const { user, loading, signOut } = useAuth();
   const [modalOpen, setModalOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setImgError(false);
+  }, [user]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -145,35 +150,41 @@ export const UserProfileMenu: React.FC = () => {
     );
   }
 
+  const avatarSrc = (!imgError && user.photoURL) ? user.photoURL : '/user.png';
+
   return (
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setDropdownOpen(!dropdownOpen)}
-        className="flex items-center gap-2 p-1 rounded-full bg-white/85 hover:bg-white text-slate-900 transition-all duration-200 hover:scale-105 shadow-sm cursor-pointer"
+        className="flex items-center gap-2 p-0.5 rounded-full bg-white/90 hover:bg-white text-slate-900 transition-all duration-200 hover:scale-105 shadow-md cursor-pointer ring-1 ring-black/5"
         title={user.displayName || user.email || 'User Profile'}
       >
-        {user.photoURL ? (
-          <img
-            src={user.photoURL}
-            alt={user.displayName || 'Profile'}
-            className="w-7 h-7 rounded-full object-cover border border-amber-500/30"
-          />
-        ) : (
-          <div className="w-7 h-7 rounded-full bg-amber-500/20 text-amber-800 flex items-center justify-center font-bold text-xs">
-            {(user.displayName || user.email || 'U')[0].toUpperCase()}
-          </div>
-        )}
+        <img
+          src={avatarSrc}
+          alt={user.displayName || 'Profile'}
+          onError={() => setImgError(true)}
+          className="w-7 h-7 rounded-full object-cover"
+          referrerPolicy="no-referrer"
+        />
       </button>
 
       {dropdownOpen && (
         <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-slate-900/95 border border-white/10 p-2 shadow-2xl text-white backdrop-blur-md z-50">
-          <div className="px-3 py-2.5 border-b border-white/10">
-            <p className="text-xs font-semibold text-white truncate">
-              {user.displayName || 'Explorer'}
-            </p>
-            <p className="text-[11px] text-slate-400 truncate mt-0.5">
-              {user.email}
-            </p>
+          <div className="px-3 py-2.5 border-b border-white/10 flex items-center gap-2.5">
+            <img
+              src={avatarSrc}
+              alt={user.displayName || 'Profile'}
+              className="w-8 h-8 rounded-full object-cover shrink-0"
+              referrerPolicy="no-referrer"
+            />
+            <div className="overflow-hidden">
+              <p className="text-xs font-semibold text-white truncate">
+                {user.displayName || 'Explorer'}
+              </p>
+              <p className="text-[11px] text-slate-400 truncate mt-0.5">
+                {user.email}
+              </p>
+            </div>
           </div>
 
           <button
