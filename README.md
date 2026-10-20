@@ -1,92 +1,126 @@
-# A Day in Our Living World
+# Living World
 
-An interactive 3D miniature storytelling world built with Three.js, React 19, TypeScript, and Tailwind CSS. The experience brings the stylized miniature town aesthetic to life with a scroll-driven camera journey, animated characters and vehicles, dynamic day-to-night lighting, interactive points of interest, and an optional procedural nature soundscape.
+> An interactive, exploratory 3D diorama celebrating village life, natural landscapes, and community rhythms from sunrise to dusk. Handcrafted with Three.js, React 19, TypeScript, and Tailwind CSS.
 
----
-
-## Key Features
-
-1. **Procedural 3D Miniature Diorama (Three.js WebGL)**
-   - **Mountain Range & Sunrise**: Snow-capped peaks, glowing sunburst corona behind the mountain pass, drifting low-poly clouds, and circling flock of birds.
-   - **Alpine Waterfall & River**: Multi-tier cascading waterfall with mist particles, crystal-blue flowing river with surface reflections, riverbank rocks, and a bobbing wooden sailboat.
-   - **Historic Stone Arch Bridge**: Handcrafted stone masonry bridge spanning the river with an animated walking pedestrian.
-   - **Community Park**:
-     - Full playground with climbing tower, red slide, swaying swings, and playing children.
-     - Morning yoga lawn with four residents practicing mindful poses.
-     - Senior walkers with walking canes on winding paved paths.
-     - Energetic jogger in blue athletic wear pacing the park loop.
-     - Plein-air landscape painter (*Mateo*) with straw hat, easel, miniature canvas, and faithful golden retriever (*Barnaby*).
-   - **Village Street & Commerce**:
-     - *The Golden Crust Bakery*: Red-and-white striped awning, outdoor dining tables, and bread display.
-     - *Velvet Roast Espresso*: Modern charcoal facade with warm glowing windows and cafe patio.
-     - *Valley Green Grocer*: Produce crates with apples, oranges, greens, and parking sign.
-     - Staggered pastel hillside villas with smoking chimneys and glowing evening windows.
-     - Moving traffic with rotating wheels (compact orange car, classic blue SUV) smoothly traversing the avenue.
-     - Parked vintage scooters (red Vespa, blue moped) and a playful sidewalk puppy.
-   - **Foreground**: Faceted crystal-like amethyst/slate rocks, blooming wildflowers, and glowing street lanterns.
-
-2. **Cinematic Storytelling & Scroll-Driven Camera**
-   - 4 guided story chapters:
-     - **01 · Sunrise** (A Day in Our World)
-     - **02 · Community** (The Morning Rhythms & Park)
-     - **03 · Nature** (River, Waterfall & Bridge)
-     - **04 · Golden Hour** (Creativity & Commerce)
-   - Smooth spline camera interpolation responding to wheel scrolling, touch vertical swipes, and timeline clicks.
-
-3. **Free Exploration Mode**
-   - Click "Explore" in the top bar or menu to unhook the camera from the narrative track.
-   - Uses OrbitControls for unrestricted rotation, panning, and zoom around the 3D town.
-   - Prominent "Return to Story" control seamlessly brings you back to the guided journey.
-
-4. **Interactive Hotspots & Story Panels**
-   - 9 interactive 3D hotspots across the valley.
-   - Raycasting detection on hover and click.
-   - Polished narrative modal cards detailing the atmosphere, daily rhythms, and characters of each location.
-
-5. **Dynamic Day-to-Night Lighting Engine**
-   - Supports 5 distinct atmospheric lighting states: *Sunrise*, *Morning*, *Nature/Afternoon*, *Golden Hour*, and *Night*.
-   - Night mode turns on warm glowing street lanterns, illuminates shop windows, and displays a sparkling starry sky.
-   - Quick circular toggle button at bottom right (sun/moon) and granular lighting selector in the menu.
-
-6. **Procedural Web Audio Soundscape**
-   - Standalone browser-synthesized audio: rushing river water, morning bird chirps, gentle wind, and nighttime crickets.
-   - Musical chime feedback on hotspot selection.
-   - Zero external audio files required — immune to 404 network errors or browser blocking.
-
-7. **Fully Responsive Design**
-   - Desktop: full-viewport immersive diorama.
-   - Mobile & Tablet: touch swipe gestures, portrait FOV compensation, responsive typography, and touch-optimized controls.
+🌐 **Live Demo:** [https://a-living-world.vercel.app/](https://a-living-world.vercel.app/)
 
 ---
 
-## Technology Stack
+## Overview
 
-- **Framework**: React 19 + TypeScript (Vite)
-- **3D Graphics**: Three.js WebGL with custom procedural geometries, shaders, and OrbitControls
-- **Styling**: Tailwind CSS v4 + Google Fonts (*Cormorant Garamond* & *Plus Jakarta Sans*)
-- **Icons**: Lucide React
-- **Audio**: Web Audio API Procedural Synthesizer
+**Living World** is a creative web-based 3D digital diorama designed to evoke the tactile charm of handcrafted miniature models. The application pairs real-time WebGL rendering with modern front-end architectural practices, providing an ambient storytelling journey accompanied by responsive controls and an interactive procedural environment.
+
+---
+
+## Features
+
+### 1. 3D Miniature Diorama (WebGL & Three.js)
+- **Scenic Landscape**: Snow-capped mountain passes, cascading alpine waterfalls, and dynamic terrain with river surface refractions.
+- **Village Architecture**: Detailed facades including artisan bakeries, espresso bars, local markets, and hillside cottages.
+- **Dynamic Atmosphere**: Five distinct lighting profiles spanning *Sunrise*, *Morning*, *Afternoon*, *Golden Hour*, and *Night*, with lantern glow and night skylines.
+- **Procedural Motion**: Drifting low-poly cloud formations, animated river currents, and ambient wildlife patterns.
+
+### 2. Guided Camera & Story Navigation
+- Smooth spline-based camera interpolation driving chapter transitions.
+- Interactive points of interest with raycast detection and informational cards detailing neighborhood narratives.
+- Free exploration mode with full orbit controls, tilt, and pan capability.
+
+### 3. User Authentication
+- Powered by Firebase Authentication with Google Sign-In.
+- Seamless account management, profile presence, and session state persistence.
+
+### 4. Responsive Engineering
+- Tailored for high-refresh desktop monitors, tablets, and handheld devices.
+- Orientation-aware mobile adaptation ensuring typography and diorama viewports remain balanced across landscape and portrait angles.
+
+---
+
+## Tech Stack
+
+| Domain | Technology |
+|---|---|
+| **Core** | React 19, TypeScript |
+| **Bundler & Tooling** | Vite |
+| **3D Rendering** | Three.js, @react-three/fiber, @react-three/drei |
+| **Styling** | Tailwind CSS v4 |
+| **Animation & Curves** | GSAP, Motion |
+| **Authentication** | Firebase Auth (Google OAuth) |
+| **Icons** | Lucide React |
+
+---
+
+## Project Structure
+
+```plaintext
+Living-World/
+├── public/              # Static assets, textures, and models
+│   ├── images/          # Environment maps and diorama textures
+│   └── user.png         # Default user avatar
+├── src/
+│   ├── components/
+│   │   ├── 3d/          # Scene canvas, environment builders, and 3D objects
+│   │   ├── auth/        # Authentication modal and user profile menu
+│   │   └── ui/          # Navigation, chapter bars, modals, and prompts
+│   ├── context/         # AuthContext and state providers
+│   ├── lib/             # Firebase setup and sound utilities
+│   ├── types/           # TypeScript definitions and data interfaces
+│   ├── App.tsx          # Main application layout
+│   └── main.tsx         # React root entry point
+├── package.json         # Project metadata and dependencies
+├── tsconfig.json        # TypeScript configuration
+└── vite.config.ts       # Vite bundler configuration
+```
 
 ---
 
 ## Getting Started
 
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm or yarn
+
 ### Installation
-```bash
-npm install
-```
 
-### Development
-```bash
-npm run dev
-```
-The application will be running at `http://localhost:3000`.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/karanusewar/Living-World.git
+   cd Living-World
+   ```
 
-### Production Build
-```bash
-npm run build
-```
-Verify build output with:
-```bash
-npm run lint
-```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables:**
+   Copy `.env.example` to `.env` and provide your Firebase credentials:
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+5. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## Deployment
+
+The application is optimized for deployment on Vercel:
+- **Framework Preset**: Vite
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Live URL**: [https://a-living-world.vercel.app/](https://a-living-world.vercel.app/)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
