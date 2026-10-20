@@ -37,15 +37,37 @@
 
 ## Tech Stack
 
-| Domain | Technology |
-|---|---|
-| **Core** | React 19, TypeScript |
-| **Bundler & Tooling** | Vite |
-| **3D Rendering** | Three.js, @react-three/fiber, @react-three/drei |
-| **Styling** | Tailwind CSS v4 |
-| **Animation & Curves** | GSAP, Motion |
-| **Authentication** | Firebase Auth (Google OAuth) |
-| **Icons** | Lucide React |
+### Core Framework & Language
+- **React 19 (`react`, `react-dom`)**: Modern React with concurrent rendering, custom hooks (`useState`, `useEffect`, `useRef`, `useContext`), and modular component architecture.
+- **TypeScript 7.0**: Strict static typing across all 3D scene data, audio models, user contexts, and component interfaces.
+- **Vite 8.3**: Next-generation development tooling providing fast Hot Module Replacement (HMR) and optimized Rollup production builds.
+
+### 3D Graphics & Canvas Layer
+- **Three.js (`three`, `@types/three`)**: WebGL library powering the 3D scene canvas, camera trajectories, lighting calculations, materials, and procedural dioramas.
+- **@react-three/fiber (`R3F`) & @react-three/drei**: Declarative Three.js component layer for React with helpers like `OrbitControls`.
+
+### Styling & Design System
+- **Tailwind CSS v4 (`@tailwindcss/vite`)**: Utility-first CSS engine with glassmorphism (`backdrop-blur`), dynamic color layers, mobile safe-area insets (`env(safe-area-inset-*)`), and responsive layout breakpoints.
+- **Typography**:
+  - *Cormorant Garamond*: High-contrast editorial display serif used for headings, chapter titles, and branding.
+  - *Plus Jakarta Sans*: Clean geometric sans-serif for UI badges, navigational labels, and reading copy.
+- **Lucide React**: Clean SVG vector iconography for UI toggles, sound controls, compass navigation, and modals.
+
+### Animation & Interactive Motion
+- **GSAP (`gsap`, `@gsap/react`)**: High-performance timeline animation engine for camera path interpolations and chapter transitions.
+- **Motion (`motion`)**: Spring physics, interactive gesture handling, modal transitions, and UI overlays.
+
+### Backend & Authentication
+- **Firebase v13 (`firebase/app`, `firebase/auth`)**:
+  - **Firebase Authentication**: Google OAuth 2.0 popup flows, secure tokens, user profiles, and session persistence.
+  - React Context (`AuthProvider`) for seamless authentication state management across the app.
+
+### Procedural Audio Engineering
+- **Web Audio API**: Native browser-synthesized ambient soundscapes (gentle wind, running alpine river, morning birds) generated in real-time with zero external audio assets.
+
+### Deployment & Infrastructure
+- **Vercel**: Edge network hosting with automated continuous deployment (CI/CD) on Git push.
+- **Git & GitHub**: Version control and code repository hosting.
 
 ---
 
